@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "49318361294",
+    "project_id": "travel-related-app-for-bd",
+    "storage_bucket": "travel-related-app-for-bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49318361294:android:68c572cf565272aa44789f",
+        "android_client_info": {
+          "package_name": "com.trvlbd.travel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49318361294-n7erq2eid0isa2u4eigtirqd5sokctq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trvlbd.travel",
+            "certificate_hash": "f0fcbb4d69e60e6dedf8f7b4f7761df4cb293322"
+          }
+        },
+        {
+          "client_id": "49318361294-5h6hln4oaab7277d8uomldg5t3mt82lt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6UZMiFdEr7I73CaAePu9yeKYOt95Y7PY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49318361294-5h6hln4oaab7277d8uomldg5t3mt82lt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
