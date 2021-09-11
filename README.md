@@ -1,16 +1,25 @@
-# travel
+# A Travel App for BD
 
-A new Flutter project.
+Flutter apps can be built by running peanut with the Flutter SDK.
 
-## Getting Started
+Installing:
 
-This project is a starting point for a Flutter application.
+```console
+flutter pub global activate peanut
+```
 
-A few resources to get you started if this is your first Flutter project:
+Running:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```console
+flutter pub global run peanut --web-renderer canvaskit
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To push your local `gh-pages` branch to server.
+
+```console
+git push origin gh-pages
+```
+
+To view the deployment in `Github pages` please follow the below link:
+
+- [Deployment on Github](https://mahidul-islam.github.io/canvas/#/)
