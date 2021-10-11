@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Container(
-              height: 60,
+              height: 62,
               padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: TextField(
                 decoration: InputDecoration(
@@ -124,7 +124,9 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.only(top: 4),
               child: FlatButton(
                 onPressed: () {
-                  // forgotPass(context);
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SignUp()),
+                  ); // forgotPass(context);
                 },
                 textColor: Colors.grey,
                 child: Text(
