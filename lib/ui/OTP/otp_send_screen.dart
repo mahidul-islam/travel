@@ -23,8 +23,13 @@ class OtpSendPage extends StatefulWidget {
 }
 
 class _OtpSendPageState extends State<OtpSendPage> {
-  final  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  TextEditingController _inputNumberOneController = TextEditingController();
+  TextEditingController _inputNumberTwoController = TextEditingController();
+  TextEditingController _inputNumberThreeController = TextEditingController();
+  TextEditingController _inputNumberFourController = TextEditingController();
 
+  var otp = "0011";
 
   late FocusNode pin2FocusNode;
   late FocusNode pin3FocusNode;
@@ -105,6 +110,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
                         flex: 5,
                         child: Container(
                           child: TextFormField(
+                            controller: _inputNumberOneController,
                             // focusNode: pin2FocusNode,
                             autofocus: true,
                             obscureText: true,
@@ -114,12 +120,14 @@ class _OtpSendPageState extends State<OtpSendPage> {
                               enabledBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12.0)),
-                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                                borderSide:
+                                    BorderSide(color: Color(0xff3a5e44)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12.0)),
-                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                                borderSide:
+                                    BorderSide(color: Color(0xff3a5e44)),
                               ),
                             ),
                             keyboardType: TextInputType.number,
@@ -141,6 +149,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
                         flex: 5,
                         child: Container(
                           child: TextFormField(
+                            controller: _inputNumberTwoController,
                             focusNode: pin2FocusNode,
                             autofocus: true,
                             obscureText: true,
@@ -150,12 +159,14 @@ class _OtpSendPageState extends State<OtpSendPage> {
                               enabledBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12.0)),
-                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                                borderSide:
+                                    BorderSide(color: Color(0xff3a5e44)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12.0)),
-                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                                borderSide:
+                                    BorderSide(color: Color(0xff3a5e44)),
                               ),
                             ),
                             keyboardType: TextInputType.number,
@@ -174,6 +185,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
                         flex: 5,
                         child: Container(
                           child: TextFormField(
+                            controller: _inputNumberThreeController,
                             focusNode: pin3FocusNode,
                             autofocus: true,
                             obscureText: true,
@@ -183,12 +195,14 @@ class _OtpSendPageState extends State<OtpSendPage> {
                               enabledBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12.0)),
-                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                                borderSide:
+                                    BorderSide(color: Color(0xff3a5e44)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12.0)),
-                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                                borderSide:
+                                    BorderSide(color: Color(0xff3a5e44)),
                               ),
                             ),
                             keyboardType: TextInputType.number,
@@ -207,6 +221,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
                         flex: 5,
                         child: Container(
                           child: TextFormField(
+                            controller: _inputNumberFourController,
                             focusNode: pin4FocusNode,
                             autofocus: true,
                             obscureText: true,
@@ -216,12 +231,14 @@ class _OtpSendPageState extends State<OtpSendPage> {
                               enabledBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12.0)),
-                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                                borderSide:
+                                    BorderSide(color: Color(0xff3a5e44)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12.0)),
-                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                                borderSide:
+                                    BorderSide(color: Color(0xff3a5e44)),
                               ),
                             ),
                             keyboardType: TextInputType.number,
@@ -283,14 +300,25 @@ class _OtpSendPageState extends State<OtpSendPage> {
   Widget bottomButton() {
     return MaterialButton(
       onPressed: () {
-        if(_formKey.currentState!.validate()){
-          print("Otp verified");
+        if (_formKey.currentState!.validate()) {
+          var inputValues = _inputNumberOneController.text +
+              _inputNumberTwoController.text +
+              _inputNumberThreeController.text +
+              _inputNumberFourController.text;
+          print("Otp verified " + inputValues);
+          if (inputValues.trim() == otp) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ForgotPassword1()),
+            );
+          } else {
+            print("otp does not match");
+            // otp does not match
+          }
+        } else {
+          print("Filed can not be empty");
+          // Filed can not be empty
         }
-        //
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => ForgotPassword1()),
-        // );
       },
       color: Color(0xff3a5e44),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
