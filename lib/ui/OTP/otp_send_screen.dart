@@ -283,9 +283,9 @@ class _OtpSendPageState extends State<OtpSendPage> {
   Widget bottomButton() {
     return MaterialButton(
       onPressed: () {
-        // if(_formKey.currentState.validate()){
-        //   print("Otp verified");
-        // }
+        if(_formKey.currentState!.validate()){
+          print("Otp verified");
+        }
 
         // Navigator.push(
         //   context,
