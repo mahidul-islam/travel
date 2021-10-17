@@ -232,7 +232,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
                               pin4FocusNode.unfocus();
                             }, // Only numbers can be entered
                             // validator: (value){
-                            //   if(value.isEmpty){
+                            //   if(value!.isEmpty){
                             //     return "Input can not be empty";
                             //   }else if(value.length <= 4){
                             //     return "Input 4 digit of code";
