@@ -23,6 +23,9 @@ class OtpSendPage extends StatefulWidget {
 }
 
 class _OtpSendPageState extends State<OtpSendPage> {
+  final  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+
   late FocusNode pin2FocusNode;
   late FocusNode pin3FocusNode;
   late FocusNode pin4FocusNode;
@@ -94,142 +97,153 @@ class _OtpSendPageState extends State<OtpSendPage> {
               Container(
                 margin: EdgeInsets.only(top: 40, left: 60, right: 60),
                 alignment: Alignment.center,
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 5,
-                      child: Container(
-                        child: TextFormField(
-                          // focusNode: pin2FocusNode,
-                          autofocus: true,
-                          obscureText: true,
-                          textAlign: TextAlign.center,
-                          decoration: new InputDecoration(
-                            border: InputBorder.none,
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0)),
-                              borderSide: BorderSide(color: Color(0xff3a5e44)),
+                child: Form(
+                  key: _formKey,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 5,
+                        child: Container(
+                          child: TextFormField(
+                            // focusNode: pin2FocusNode,
+                            autofocus: true,
+                            obscureText: true,
+                            textAlign: TextAlign.center,
+                            decoration: new InputDecoration(
+                              border: InputBorder.none,
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
+                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
+                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                              ),
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0)),
-                              borderSide: BorderSide(color: Color(0xff3a5e44)),
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            style: TextStyle(
+                              color: Color(
+                                  0xff3a5e44), //// Only numbers can be entered
                             ),
+                            onChanged: (value) {
+                              nextField(value: value, focusNode: pin2FocusNode);
+                            },
                           ),
-                          keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
-                          style: TextStyle(
-                            color: Color(
-                                0xff3a5e44), //// Only numbers can be entered
-                          ),
-                          onChanged: (value) {
-                            nextField(value: value, focusNode: pin2FocusNode);
-                          },
                         ),
                       ),
-                    ),
-                    Spacer(),
-                    Expanded(
-                      flex: 5,
-                      child: Container(
-                        child: TextField(
-                          focusNode: pin2FocusNode,
-                          autofocus: true,
-                          obscureText: true,
-                          textAlign: TextAlign.center,
-                          decoration: new InputDecoration(
-                            border: InputBorder.none,
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0)),
-                              borderSide: BorderSide(color: Color(0xff3a5e44)),
+                      Spacer(),
+                      Expanded(
+                        flex: 5,
+                        child: Container(
+                          child: TextFormField(
+                            focusNode: pin2FocusNode,
+                            autofocus: true,
+                            obscureText: true,
+                            textAlign: TextAlign.center,
+                            decoration: new InputDecoration(
+                              border: InputBorder.none,
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
+                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
+                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                              ),
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0)),
-                              borderSide: BorderSide(color: Color(0xff3a5e44)),
-                            ),
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            //
+                            onChanged: (value) {
+                              nextField(value: value, focusNode: pin3FocusNode);
+                            }, // Only numbers can be entered
                           ),
-                          keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
-                          //
-                          onChanged: (value) {
-                            nextField(value: value, focusNode: pin3FocusNode);
-                          }, // Only numbers can be entered
                         ),
                       ),
-                    ),
-                    Spacer(),
-                    Expanded(
-                      flex: 5,
-                      child: Container(
-                        child: TextField(
-                          focusNode: pin3FocusNode,
-                          autofocus: true,
-                          obscureText: true,
-                          textAlign: TextAlign.center,
-                          decoration: new InputDecoration(
-                            border: InputBorder.none,
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0)),
-                              borderSide: BorderSide(color: Color(0xff3a5e44)),
+                      Spacer(),
+                      Expanded(
+                        flex: 5,
+                        child: Container(
+                          child: TextFormField(
+                            focusNode: pin3FocusNode,
+                            autofocus: true,
+                            obscureText: true,
+                            textAlign: TextAlign.center,
+                            decoration: new InputDecoration(
+                              border: InputBorder.none,
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
+                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
+                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                              ),
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0)),
-                              borderSide: BorderSide(color: Color(0xff3a5e44)),
-                            ),
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            //
+                            onChanged: (value) {
+                              nextField(value: value, focusNode: pin4FocusNode);
+                            }, // Only numbers can be entered
                           ),
-                          keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
-                          //
-                          onChanged: (value) {
-                            nextField(value: value, focusNode: pin4FocusNode);
-                          }, // Only numbers can be entered
                         ),
                       ),
-                    ),
-                    Spacer(),
-                    Expanded(
-                      flex: 5,
-                      child: Container(
-                        child: TextField(
-                          focusNode: pin4FocusNode,
-                          autofocus: true,
-                          obscureText: true,
-                          textAlign: TextAlign.center,
-                          decoration: new InputDecoration(
-                            border: InputBorder.none,
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0)),
-                              borderSide: BorderSide(color: Color(0xff3a5e44)),
+                      Spacer(),
+                      Expanded(
+                        flex: 5,
+                        child: Container(
+                          child: TextFormField(
+                            focusNode: pin4FocusNode,
+                            autofocus: true,
+                            obscureText: true,
+                            textAlign: TextAlign.center,
+                            decoration: new InputDecoration(
+                              border: InputBorder.none,
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
+                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
+                                borderSide: BorderSide(color: Color(0xff3a5e44)),
+                              ),
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0)),
-                              borderSide: BorderSide(color: Color(0xff3a5e44)),
-                            ),
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            onChanged: (value) {
+                              pin4FocusNode.unfocus();
+                            }, // Only numbers can be entered
+                            // validator: (value){
+                            //   if(value.isEmpty){
+                            //     return "Input can not be empty";
+                            //   }else if(value.length <= 4){
+                            //     return "Input 4 digit of code";
+                            //   }else
+                            //     return null;
+                            // },
                           ),
-                          keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
-                          onChanged: (value) {
-                            pin4FocusNode.unfocus();
-                          }, // Only numbers can be entered
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Container(margin: EdgeInsets.only(top: 30), child: buildTimer()),
@@ -269,10 +283,14 @@ class _OtpSendPageState extends State<OtpSendPage> {
   Widget bottomButton() {
     return MaterialButton(
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => ForgotPassword1()),
-        );
+        // if(_formKey.currentState.validate()){
+        //   print("Otp verified");
+        // }
+
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => ForgotPassword1()),
+        // );
       },
       color: Color(0xff3a5e44),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
