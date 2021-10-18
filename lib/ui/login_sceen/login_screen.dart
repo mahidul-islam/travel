@@ -60,10 +60,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: EdgeInsets.only(top: 16, left: 16, right: 16),
                 child: TextField(
                   decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.attach_email,
-                        color: Colors.grey,
-                      ),
+                      // prefixIcon: Icon(
+                      //   Icons.attach_email,
+                      //   color: Colors.grey,
+                      // ),
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // border: OutlineInputBorder(),
                       labelText: "Email",
-                      labelStyle: TextStyle(color: Color(0xff3a5e44))),
+                      labelStyle: TextStyle(color: Color(0xff3a5e44),fontSize: 12)),
                 ),
               ),
               Container(
@@ -84,10 +84,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: EdgeInsets.only(top: 10, left: 16, right: 16),
                 child: TextField(
                   decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.lock,
-                        color: Colors.grey,
-                      ),
+                      // prefixIcon: Icon(
+                      //   Icons.lock,
+                      //   color: Colors.grey,
+                      // ),
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -99,12 +99,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       // border: OutlineInputBorder(),
                       labelText: "Password",
-                      labelStyle: TextStyle(color: Color(0xff3a5e44))),
+                      labelStyle: TextStyle(color: Color(0xff3a5e44),fontSize: 12)),
                 ),
               ),
               Container(
-                alignment: Alignment.topRight,
-                margin: EdgeInsets.only(top: 4),
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(top: 15),
                 child: MaterialButton(
                   onPressed: () {
                     Navigator.push(
@@ -112,17 +112,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       MaterialPageRoute(builder: (context) => ForgotPassword()),
                     ); // forgotPass(context);
                   },
-                  textColor: Colors.grey,
+                  //textColor: Colors.grey,
                   child: Text(
                     "Forgot Password?",
-                    style: TextStyle(),
+                    style: TextStyle(color: Color(0xff3a5e44)),
                   ),
                 ),
               ),
               Container(
                 // height: 56,
                 alignment: Alignment.center,
-                // margin: EdgeInsets.only(left: 48,right: 48),
+                margin: EdgeInsets.only(top: 30),
                 child: MaterialButton(
                   color: Color(0xff3a5e44),
                   onPressed: () {},
@@ -138,6 +138,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               Container(
+                alignment: Alignment.center,
+                margin: (EdgeInsets.only(top: 20)),
+                child: Text(
+                  "Or Login with",
+                  style: TextStyle(color: Color(0xff3a5e44), fontSize: 12),
+                ),
+              ),
+              Container(
                 child: Container(
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(top: 24),
@@ -147,34 +155,36 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 150,
                     )),
               ),
-              Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 16),
-                child: MaterialButton(
-                  onPressed: () {},
-                  textColor: Colors.grey,
-                  child: Text(
-                    "Don't have account?",
-                    style: TextStyle(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                   // margin: EdgeInsets.only(top: 16),
+                    child: MaterialButton(
+                      onPressed: () {},
+                      textColor: Colors.grey,
+                      child: Text(
+                        "Don't have account?",
+                        style: TextStyle(),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.center,
-                //margin: EdgeInsets.only(top: 0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUp()),
-                    );
-                  },
-                  textColor: MyColors.primaryColor,
-                  child: Text(
-                    "Sign up",
-                    style: TextStyle(),
+                  Container(
+                    child: MaterialButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUp()),
+                        );
+                      },
+                      textColor: MyColors.primaryColor,
+                      child: Text(
+                        "Sign up",
+                        style: TextStyle(),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ],
           ),

@@ -345,7 +345,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
         TweenAnimationBuilder(
           tween: Tween(begin: 60.0, end: 0),
           duration: Duration(seconds: 60),
-          builder: (context, value, child) => Text("1:${value!.toString()}",
+          builder: (context, value, child) => Text("1:${value!.toString()} ",
               style: TextStyle(
                 color: Color(0xff3a5e44),
               )),
