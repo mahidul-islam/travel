@@ -25,21 +25,20 @@ class _SignUpPageState extends State<SignUpPage> {
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
-
           child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.start,
+             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 height: 200,
                 width: double.infinity,
-                margin: EdgeInsets.only(top: 70, left: 16),
+                margin: EdgeInsets.only(top: 70),
                 child: Image(
                   image: AssetImage("assets/signup.png"),
                 ),
               ),
               Container(
                 alignment: Alignment.topLeft,
-                margin: EdgeInsets.only(top: 36, left: 16),
+                margin: EdgeInsets.only(top: 26, left: 16),
                 child: Text(
                   "Sign up",
                   style: TextStyle(
@@ -95,6 +94,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 margin: EdgeInsets.only(top: 16, left: 16, right: 16),
                 child: TextField(
                   decoration: InputDecoration(
+                      suffixIcon: Icon(
+                        Icons.visibility,
+                        color: Color(0xff3a5e44),
+                      ),
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -116,6 +119,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 margin: EdgeInsets.only(top: 16, left: 16, right: 16),
                 child: TextField(
                   decoration: InputDecoration(
+                      suffixIcon: Icon(
+                        Icons.visibility,
+                        color: Color(0xff3a5e44),
+                      ),
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -134,7 +141,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 36, left: 100, right: 100),
+                margin: EdgeInsets.only(top: 36),
                 child: MaterialButton(
                   onPressed: () {},
                   color: Color(0xff3a5e44),
@@ -149,15 +156,24 @@ class _SignUpPageState extends State<SignUpPage> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: 18),textAlign: TextAlign.center,
+                          fontSize: 18),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
               ),
               Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(top: 20),
+                child: Text(
+                  "Or Signup with",
+                  style: TextStyle(color: Color(0xff3a5e44), fontSize: 12),
+                ),
+              ),
+              Container(
                 child: Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(top: 36),
+                    margin: EdgeInsets.only(top: 20),
                     child: Image(
                       image: AssetImage("assets/logo.png"),
                       height: 50,
@@ -165,7 +181,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     )),
               ),
               Container(
-                margin: EdgeInsets.only(top: 24, left: 75, right: 72),
+                margin: EdgeInsets.only(top: 16),
                 alignment: Alignment.center,
                 child: Text(
                   "By using this app, you agree to our",
@@ -175,7 +191,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 72, right: 72),
                 alignment: Alignment.center,
                 child: Text("Terms of Use and privacy policy",
                     style: TextStyle(color: Color(0xff3a5e44), fontSize: 12)),
