@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,7 +26,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
   TextEditingController _inputNumberTwoController = TextEditingController();
   TextEditingController _inputNumberThreeController = TextEditingController();
   TextEditingController _inputNumberFourController = TextEditingController();
-  var hasError=0;
+  var hasError = 0;
   var otp = "0011";
 
   late FocusNode pin2FocusNode;
@@ -110,8 +108,8 @@ class _OtpSendPageState extends State<OtpSendPage> {
                         flex: 5,
                         child: Container(
                           child: TextFormField(
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 hasError++;
                               }
                               return null;
@@ -155,8 +153,8 @@ class _OtpSendPageState extends State<OtpSendPage> {
                         flex: 5,
                         child: Container(
                           child: TextFormField(
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 hasError++;
                               }
                               return null;
@@ -197,8 +195,8 @@ class _OtpSendPageState extends State<OtpSendPage> {
                         flex: 5,
                         child: Container(
                           child: TextFormField(
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 hasError++;
                               }
                               return null;
@@ -239,8 +237,8 @@ class _OtpSendPageState extends State<OtpSendPage> {
                         flex: 5,
                         child: Container(
                           child: TextFormField(
-                            validator: (value){
-                              if(value!.isEmpty){
+                            validator: (value) {
+                              if (value!.isEmpty) {
                                 hasError++;
                               }
                               return null;
@@ -324,8 +322,8 @@ class _OtpSendPageState extends State<OtpSendPage> {
   Widget bottomButton() {
     return MaterialButton(
       onPressed: () {
-        print("clicked and hasError "+hasError.toString());
-        if (_formKey.currentState!.validate() && hasError==0) {
+        print("clicked and hasError " + hasError.toString());
+        if (_formKey.currentState!.validate() && hasError == 0) {
           var inputValues = _inputNumberOneController.text +
               _inputNumberTwoController.text +
               _inputNumberThreeController.text +
