@@ -12,18 +12,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TapGestureRecognizer _gestureRecognizer = TapGestureRecognizer()
-    ..onTap = () {
-      // Navigator.push(
-      //                 context,
-      //                 MaterialPageRoute(builder: (context) => SignUp()),
-      //               );
-    };
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  TextEditingController _inputNumberOneController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passController = TextEditingController();
 
   var email = "mmm@gamil.com";
+  var pass = "0000";
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // ),
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
+          margin: EdgeInsets.only(bottom: 24),
           color: Colors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,13 +68,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(
                   height: 62,
                   padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-                  child: TextField(
-                    controller: _inputNumberOneController,
+                  child: TextFormField(
+                    validator: (value) {
+                      return null;
+                    },
+                    controller: _emailController,
                     decoration: InputDecoration(
-                      // prefixIcon: Icon(
-                      //   Icons.attach_email,
-                      //   color: Colors.grey,
-                      // ),
+                        // prefixIcon: Icon(
+                        //   Icons.attach_email,
+                        //   color: Colors.grey,
+                        // ),
                         border: InputBorder.none,
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -97,19 +91,23 @@ class _LoginScreenState extends State<LoginScreen> {
                         // border: OutlineInputBorder(),
                         labelText: "Email",
                         labelStyle:
-                        TextStyle(color: Color(0xff3a5e44), fontSize: 12)),
+                            TextStyle(color: Color(0xff3a5e44), fontSize: 12)),
                   ),
                 ),
               ),
               Container(
                 height: 60,
                 padding: EdgeInsets.only(top: 10, left: 16, right: 16),
-                child: TextField(
+                child: TextFormField(
+                  controller: _passController,
+                  validator: (value) {
+                    return null;
+                  },
                   decoration: InputDecoration(
-                    // prefixIcon: Icon(
-                    //   Icons.lock,
-                    //   color: Colors.grey,
-                    // ),
+                      // prefixIcon: Icon(
+                      //   Icons.lock,
+                      //   color: Colors.grey,
+                      // ),
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -122,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       // border: OutlineInputBorder(),
                       labelText: "Password",
                       labelStyle:
-                      TextStyle(color: Color(0xff3a5e44), fontSize: 12)),
+                          TextStyle(color: Color(0xff3a5e44), fontSize: 12)),
                 ),
               ),
               Container(
@@ -152,13 +150,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: MaterialButton(
                   color: Color(0xff3a5e44),
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      var inputValues = _inputNumberOneController.text;
-                      print("Right input " + inputValues);
+                    if (_emailController.text.isEmpty) {
+                      print("Email field is empty");
+                    } else if (_passController.text.isEmpty) {
+                      print("Password field is empty");
+                    } else {
+                      if (email.trim() !=
+                          _emailController.text.toString().trim()) {
+                        print("Invalid Email");
+                      } else if (pass.trim() !=
+                          _passController.text.toString().trim()) {
+                        print("Invalid Pass");
+                      } else {
+                        print("navigate");
                       }
-
+                    }
                   },
-
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   child: Container(
@@ -205,7 +212,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   decoration: TextDecoration.underline,
                                   decorationThickness: 2,
                                   fontWeight: FontWeight.bold),
-                              recognizer: _gestureRecognizer),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => SignUp()),
+                                  );
+                                }),
                         ]),
                   ),
                 ),
