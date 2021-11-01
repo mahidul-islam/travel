@@ -68,7 +68,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
               Container(
                 height: 200,
                 width: double.infinity,
-                margin: EdgeInsets.only(top: 100),
+                margin: EdgeInsets.only(top: 100, left: 25.5, right: 25.5),
                 child: Image(
                   image: AssetImage("assets/otp.png"),
                 ),
@@ -79,9 +79,12 @@ class _OtpSendPageState extends State<OtpSendPage> {
                 child: Text(
                   "Please enter your verification code",
                   style: TextStyle(
-                      color: Color(0xff3a5e44),
-                      // fontWeight: FontWeight.bold,
-                      fontSize: 16),
+                    fontFamily: 'Roboto',
+                    color: Color(0xff3a5e44),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
+                  ),
                 ),
               ),
               Container(
@@ -89,18 +92,28 @@ class _OtpSendPageState extends State<OtpSendPage> {
                 alignment: Alignment.center,
                 child: Text(
                   "   We have sent a verification code to your registered ",
-                  style: TextStyle(color: Color(0xff3a5e44)),
+                  style: TextStyle( fontFamily: 'Roboto',
+                    color: Color(0xff3a5e44),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                  ),
                 ),
               ),
               Container(
                 alignment: Alignment.center,
                 child: Text(
                   "email ID/Phone",
-                  style: TextStyle(color: Color(0xff3a5e44)),
+                  style: TextStyle( fontFamily: 'Roboto',
+                    color: Color(0xff3a5e44),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                  ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 40, left: 60, right: 60),
+                margin: EdgeInsets.only(top: 40, left: 70, right: 70),
                 alignment: Alignment.center,
                 child: Form(
                   key: _formKey,
@@ -113,7 +126,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
                             controller: _inputNumberOneController,
                             // focusNode: pin2FocusNode,
                             autofocus: true,
-                            obscureText: true,
+                           // obscureText: true,
                             textAlign: TextAlign.center,
                             decoration: new InputDecoration(
                               border: InputBorder.none,
@@ -152,7 +165,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
                             controller: _inputNumberTwoController,
                             focusNode: pin2FocusNode,
                             autofocus: true,
-                            obscureText: true,
+                           // obscureText: true,
                             textAlign: TextAlign.center,
                             decoration: new InputDecoration(
                               border: InputBorder.none,
@@ -188,7 +201,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
                             controller: _inputNumberThreeController,
                             focusNode: pin3FocusNode,
                             autofocus: true,
-                            obscureText: true,
+                           // obscureText: true,
                             textAlign: TextAlign.center,
                             decoration: new InputDecoration(
                               border: InputBorder.none,
@@ -224,7 +237,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
                             controller: _inputNumberFourController,
                             focusNode: pin4FocusNode,
                             autofocus: true,
-                            obscureText: true,
+                          //  obscureText: true,
                             textAlign: TextAlign.center,
                             decoration: new InputDecoration(
                               border: InputBorder.none,
@@ -263,7 +276,10 @@ class _OtpSendPageState extends State<OtpSendPage> {
                   ),
                 ),
               ),
-              Container(margin: EdgeInsets.only(top: 30), child: buildTimer()),
+              Container(
+                  margin: EdgeInsets.only(top: 7.3),
+                  child: buildTimer()
+              ),
               Container(
                   alignment: Alignment.center,
                   margin: EdgeInsets.only(top: 50),
@@ -272,18 +288,28 @@ class _OtpSendPageState extends State<OtpSendPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
+                    margin: EdgeInsets.only(top: 15),
                     child: Text(
                       "Did't get the OTP?",
-                      style: TextStyle(color: Color(0xff3a5e44)),
+                      style: TextStyle(fontFamily: 'Roboto',
+                        color: Color(0xff3a5e44),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal),
                     ),
                   ),
                   Container(
+                    margin: EdgeInsets.only(top: 15),
                     child: MaterialButton(
                       onPressed: () {},
                       child: Text(
                         "Resend OTP",
                         style: TextStyle(
+                          fontFamily: 'Roboto',
                           color: Color(0xff3a5e44),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          fontStyle: FontStyle.normal,
                         ),
                       ),
                     ),
@@ -323,12 +349,18 @@ class _OtpSendPageState extends State<OtpSendPage> {
       color: Color(0xff3a5e44),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Container(
-        height: 35,
-        width: 130,
-        margin: EdgeInsets.only(top: 15),
+        alignment: Alignment.center,
+        height: 38,
+        width: 150,
+        margin: EdgeInsets.only(top: 8, bottom: 8),
         child: Text(
           "Next",
-          style: TextStyle(color: Colors.white, fontSize: 18),
+          style: TextStyle( fontFamily: 'Raleway',
+    color: Color(0xfffcfcfc),
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+          ),
           textAlign: TextAlign.center,
         ),
       ),
@@ -340,12 +372,15 @@ class _OtpSendPageState extends State<OtpSendPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("This code will expired in ",
-            style: TextStyle(color: Color(0xff3a5e44)),
+            style: TextStyle(color: Color(0xff3a5e44),
+              fontSize: 16,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w500,),
             textAlign: TextAlign.center),
         TweenAnimationBuilder(
           tween: Tween(begin: 60.0, end: 0),
           duration: Duration(seconds: 60),
-          builder: (context, value, child) => Text("1:${value!.toString()} ",
+          builder: (context, value, child) => Text("0:${value!.toString()} ",
               style: TextStyle(
                 color: Color(0xff3a5e44),
               )),
