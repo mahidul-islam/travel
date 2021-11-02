@@ -75,7 +75,7 @@ class _ForgotPasswordPage1 extends State<ForgotPasswordPage1> {
               ),
               Container(
                 height: 65,
-                margin: EdgeInsets.only(top: 15, left: 16, right: 16),
+                margin: EdgeInsets.only(top: 15,   left: 16, right: 16),
                 child: TextField(
                   decoration: InputDecoration(
                     border: InputBorder.none,
