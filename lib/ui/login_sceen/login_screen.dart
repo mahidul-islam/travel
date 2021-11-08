@@ -12,6 +12,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  bool ishiddenPassword = true;
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passController = TextEditingController();
@@ -119,6 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 65,
                 padding: EdgeInsets.only(top: 12.1, left: 18.3, right: 18.3),
                 child: TextFormField(
+                  obscureText: ishiddenPassword,
                   controller: _passController,
                   validator: (value) {
                     return null;
@@ -145,6 +149,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
+                    ),
+                    suffixIcon: IconButton(
+                        icon : Icon(ishiddenPassword? Icons.visibility_off:Icons.visibility),
+                        color: Color(0xff3a5e44), onPressed: () {
+                      ishiddenPassword =! ishiddenPassword;
+                      setState(() {
+                      });
+                    }
                     ),
                   ),
                 ),

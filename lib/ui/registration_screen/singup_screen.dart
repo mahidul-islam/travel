@@ -20,7 +20,10 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  late String _name,_email;
+
+  bool ishiddenPassword = true;
+
+   String? _name,_email;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _password = TextEditingController();
   TextEditingController _confirmPassword = TextEditingController();
@@ -139,12 +142,10 @@ class _SignUpPageState extends State<SignUpPage> {
                  // height: 60,
                   margin: EdgeInsets.only(top: 11.5, left: 18.7, right: 18),
                   child: TextFormField(
+                    obscureText: ishiddenPassword,
                     controller: _password,
                     decoration: InputDecoration(
-                      suffixIcon: Icon(
-                        Icons.visibility,
-                        color: Color(0xff3a5e44),
-                      ),
+
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -164,6 +165,14 @@ class _SignUpPageState extends State<SignUpPage> {
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
                       ),
+                      suffixIcon: IconButton(
+                          icon : Icon(ishiddenPassword? Icons.visibility_off:Icons.visibility),
+                        color: Color(0xff3a5e44), onPressed: () {
+                            ishiddenPassword =! ishiddenPassword;
+                            setState(() {
+                            });
+                      }
+                      ),
                     ),
                     validator: (String? value){
                       if(value!.isEmpty){
@@ -173,47 +182,54 @@ class _SignUpPageState extends State<SignUpPage> {
                     },
                   ),
                 ),
-                Container(
-                //  height: 60,
-                  margin: EdgeInsets.only(top: 11.5, left: 18.7, right: 18),
-                  child: TextFormField(
-                    controller: _confirmPassword,
-                    decoration: InputDecoration(
-                      suffixIcon: Icon(
-                        Icons.visibility,
-                        color: Color(0xff3a5e44),
-                      ),
-                      border: InputBorder.none,
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        borderSide: BorderSide(color: Color(0xff3a5e44)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        borderSide: BorderSide(color: Color(0xff3a5e44)),
-                      ),
+                Padding(
+                  // child: Container(
+                  // //  height: 60,
+                    padding: EdgeInsets.only(top: 11.5, left: 18.7, right: 18),
+                    child: TextFormField(
+                      obscureText: ishiddenPassword,
+                      controller: _confirmPassword,
+                      decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                            icon : Icon(ishiddenPassword? Icons.visibility_off:Icons.visibility),
+                            color: Color(0xff3a5e44), onPressed: () {
+                          ishiddenPassword =! ishiddenPassword;
+                          setState(() {
+                          });
+                        }
+                        ),
+                        border: InputBorder.none,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                          borderSide: BorderSide(color: Color(0xff3a5e44)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                          borderSide: BorderSide(color: Color(0xff3a5e44)),
+                        ),
 
-                      // border: OutlineInputBorder(),
-                      labelText: "Confirm Password",
-                      labelStyle: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Color(0xff3a5e44),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        fontStyle: FontStyle.normal,
+                        // border: OutlineInputBorder(),
+                        labelText: "Confirm Password",
+                        labelStyle: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Color(0xff3a5e44),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                        ),
                       ),
+                    validator: (String? value){
+                      if(value!.isEmpty){
+                        return "Please re-enter password";
+                      }
+                      if(_password.text != _confirmPassword.text)
+                      {
+                        return "Password do not match";
+                      }return null;
+                    },
                     ),
-                  validator: (String? value){
-                    if(value!.isEmpty){
-                      return "Please re-enter password";
-                    }
-                    if(_password.text != _confirmPassword.text)
-                    {
-                      return "Password do not match";
-                    }return null;
-                  },
                   ),
-                ),
+
                 Container(
                   alignment: Alignment.center,
                   margin: EdgeInsets.only(top: 40.3),
@@ -221,6 +237,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     onPressed: () {
                       if(_formKey.currentState!.validate())
                         {
+                          print("Sucessfull");
                          return;
                         }else
                           {
