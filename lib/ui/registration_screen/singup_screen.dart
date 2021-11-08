@@ -20,14 +20,12 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-
   bool ishiddenPassword = true;
 
-   String? _name,_email;
+  String? _name, _email;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _password = TextEditingController();
   TextEditingController _confirmPassword = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +86,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         fontStyle: FontStyle.normal,
                       ),
                     ),
-                    validator: (String? value){
-                      if(value!.isEmpty){
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
                         return "Please enter name";
                       }
                       return null;
@@ -100,7 +98,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 Container(
-                //  height: 60,
+                  //  height: 60,
                   margin: EdgeInsets.only(top: 11.5, left: 18.7, right: 18),
                   child: TextFormField(
                     decoration: InputDecoration(
@@ -124,14 +122,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         fontStyle: FontStyle.normal,
                       ),
                     ),
-                    validator: (String? value){
-                      if(value!.isEmpty){
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
                         return "Please enter email";
                       }
-                      if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]").hasMatch(value))
-                        {
-                          return "Please enter valid email";
-                        }return null;
+                      if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]")
+                          .hasMatch(value)) {
+                        return "Please enter valid email";
+                      }
+                      return null;
                     },
                     // onSaved: (String? name){
                     //   _email = _email!;
@@ -139,13 +138,12 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 Container(
-                 // height: 60,
+                  // height: 60,
                   margin: EdgeInsets.only(top: 11.5, left: 18.7, right: 18),
                   child: TextFormField(
                     obscureText: ishiddenPassword,
                     controller: _password,
                     decoration: InputDecoration(
-
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -166,83 +164,81 @@ class _SignUpPageState extends State<SignUpPage> {
                         fontStyle: FontStyle.normal,
                       ),
                       suffixIcon: IconButton(
-                          icon : Icon(ishiddenPassword? Icons.visibility_off:Icons.visibility),
-                        color: Color(0xff3a5e44), onPressed: () {
-                            ishiddenPassword =! ishiddenPassword;
-                            setState(() {
-                            });
-                      }
-                      ),
+                          icon: Icon(ishiddenPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility),
+                          color: Color(0xff3a5e44),
+                          onPressed: () {
+                            ishiddenPassword = !ishiddenPassword;
+                            setState(() {});
+                          }),
                     ),
-                    validator: (String? value){
-                      if(value!.isEmpty){
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
                         return "Please enter password";
                       }
-                       return null;
+                      return null;
                     },
                   ),
                 ),
-                Padding(
-                  // child: Container(
+                Container(
                   // //  height: 60,
-                    padding: EdgeInsets.only(top: 11.5, left: 18.7, right: 18),
-                    child: TextFormField(
-                      obscureText: ishiddenPassword,
-                      controller: _confirmPassword,
-                      decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                            icon : Icon(ishiddenPassword? Icons.visibility_off:Icons.visibility),
-                            color: Color(0xff3a5e44), onPressed: () {
-                          ishiddenPassword =! ishiddenPassword;
-                          setState(() {
-                          });
-                        }
-                        ),
-                        border: InputBorder.none,
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                          borderSide: BorderSide(color: Color(0xff3a5e44)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                          borderSide: BorderSide(color: Color(0xff3a5e44)),
-                        ),
-
-                        // border: OutlineInputBorder(),
-                        labelText: "Confirm Password",
-                        labelStyle: TextStyle(
-                          fontFamily: 'Roboto',
+                  padding: EdgeInsets.only(top: 11.5, left: 18.7, right: 18),
+                  child: TextFormField(
+                    obscureText: ishiddenPassword,
+                    controller: _confirmPassword,
+                    decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                          icon: Icon(ishiddenPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility),
                           color: Color(0xff3a5e44),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.normal,
-                        ),
+                          onPressed: () {
+                            ishiddenPassword = !ishiddenPassword;
+                            setState(() {});
+                          }),
+                      border: InputBorder.none,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        borderSide: BorderSide(color: Color(0xff3a5e44)),
                       ),
-                    validator: (String? value){
-                      if(value!.isEmpty){
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        borderSide: BorderSide(color: Color(0xff3a5e44)),
+                      ),
+
+                      // border: OutlineInputBorder(),
+                      labelText: "Confirm Password",
+                      labelStyle: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Color(0xff3a5e44),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
                         return "Please re-enter password";
                       }
-                      if(_password.text != _confirmPassword.text)
-                      {
+                      if (_password.text != _confirmPassword.text) {
                         return "Password do not match";
-                      }return null;
+                      }
+                      return null;
                     },
-                    ),
                   ),
-
+                ),
                 Container(
                   alignment: Alignment.center,
                   margin: EdgeInsets.only(top: 40.3),
                   child: MaterialButton(
                     onPressed: () {
-                      if(_formKey.currentState!.validate())
-                        {
-                          print("Sucessfull");
-                         return;
-                        }else
-                          {
-                            print("Not worked");
-                          }
+                      if (_formKey.currentState!.validate()) {
+                        print("Sucessfull");
+                        return;
+                      } else {
+                        print("Not worked");
+                      }
                     },
                     color: Color(0xff3a5e44),
                     shape: RoundedRectangleBorder(
