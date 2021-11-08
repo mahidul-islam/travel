@@ -31,9 +31,9 @@ class _OtpSendPageState extends State<OtpSendPage> {
   var hasError=0;
   var otp = "0011";
 
-  late FocusNode pin2FocusNode;
-  late FocusNode pin3FocusNode;
-  late FocusNode pin4FocusNode;
+   FocusNode? pin2FocusNode;
+   FocusNode? pin3FocusNode;
+   FocusNode? pin4FocusNode;
 
   @override
   void initState() {
@@ -47,14 +47,14 @@ class _OtpSendPageState extends State<OtpSendPage> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    pin2FocusNode.dispose();
-    pin3FocusNode.dispose();
-    pin4FocusNode.dispose();
+    pin2FocusNode!.dispose();
+    pin3FocusNode!.dispose();
+    pin4FocusNode!.dispose();
   }
 
-  void nextField({required String value, required FocusNode focusNode}) {
-    if (value.length == 1) {
-      focusNode.requestFocus();
+  void nextField({String? value, FocusNode? focusNode}) {
+    if (value!.length == 1) {
+      focusNode!.requestFocus();
     }
   }
 
@@ -283,7 +283,8 @@ class _OtpSendPageState extends State<OtpSendPage> {
                               FilteringTextInputFormatter.digitsOnly
                             ],
                             onChanged: (value) {
-                              pin4FocusNode.unfocus();
+                          if (value.length == 1) {
+                           pin4FocusNode!.unfocus();}
                             }, // Only numbers can be entered
                             // validator: (value){
                             //   if(value!.isEmpty){
@@ -405,7 +406,7 @@ class _OtpSendPageState extends State<OtpSendPage> {
         TweenAnimationBuilder(
           tween: Tween(begin: 60.0, end: 0),
           duration: Duration(seconds: 60),
-          builder: (context, value, child) => Text("0:${value!.toString()} ",
+          builder: (_, dynamic value, child) => Text("00:${value.toInt()}",
               style: TextStyle(
                 color: Color(0xff3a5e44),
               )),
