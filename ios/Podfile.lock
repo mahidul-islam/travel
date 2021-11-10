@@ -5,9 +5,6 @@ PODS:
     - Flutter
   - Firebase/Analytics (8.6.0):
     - Firebase/Core
-  - Firebase/Auth (8.6.0):
-    - Firebase/CoreOnly
-    - FirebaseAuth (~> 8.6.0)
   - Firebase/Core (8.6.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 8.6.0)
@@ -18,10 +15,6 @@ PODS:
     - FirebaseFirestore (~> 8.6.0)
   - firebase_analytics (8.3.2):
     - Firebase/Analytics (= 8.6.0)
-    - firebase_core
-    - Flutter
-  - firebase_auth (3.1.1):
-    - Firebase/Auth (= 8.6.0)
     - firebase_core
     - Flutter
   - firebase_core (1.6.0):
@@ -45,11 +38,6 @@ PODS:
     - GoogleUtilities/Network (~> 7.4)
     - "GoogleUtilities/NSData+zlib (~> 7.4)"
     - nanopb (~> 2.30908.0)
-  - FirebaseAuth (8.6.0):
-    - FirebaseCore (~> 8.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
-    - GoogleUtilities/Environment (~> 7.4)
-    - GTMSessionFetcher/Core (~> 1.5)
   - FirebaseCore (8.6.0):
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
@@ -109,7 +97,6 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.5.2):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.7.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -120,7 +107,6 @@ PODS:
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
-  - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `8.6.0`)
   - Flutter (from `Flutter`)
@@ -129,14 +115,12 @@ SPEC REPOS:
   trunk:
     - Firebase
     - FirebaseAnalytics
-    - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseInstallations
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
-    - GTMSessionFetcher
     - nanopb
     - PromisesObjC
 
@@ -145,8 +129,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/cloud_firestore/ios"
   firebase_analytics:
     :path: ".symlinks/plugins/firebase_analytics/ios"
-  firebase_auth:
-    :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   FirebaseFirestore:
@@ -164,10 +146,8 @@ SPEC CHECKSUMS:
   cloud_firestore: 8a2843c34901ea2bc6aafcaa1c452f5b4f1ade37
   Firebase: 21ac9f28b09a8bdfc005f34c984fca84e7e8786d
   firebase_analytics: 039357074df292fb8a58e119206762d10483a8ec
-  firebase_auth: a5da789c2876fda3ad7407bd2828e502dfeebc42
   firebase_core: c21ac09a8d23afd3594b56ed786bad12e5266bba
   FirebaseAnalytics: 8f32ae54ad42754f503354782575c4ddfc1425c3
-  FirebaseAuth: 223adeeb2262b417532e89bf06a960e3a0a1e9e4
   FirebaseCore: 620b677f70f5470a8e59cb77f3ddc666f6f09785
   FirebaseCoreDiagnostics: 3721920bde3a9a6d5aa093c1d25e9d3e47f694af
   FirebaseFirestore: 113b2724b363d79c98c965f43e8af970745c13f3
@@ -176,10 +156,9 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 2c0c6e2a7ab3fe730ade6379f732bdefb46f50b0
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleUtilities: 8de2a97a17e15b6b98e38e8770e2d129a57c0040
-  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
 PODFILE CHECKSUM: 9b7667fa3a7084eb80074fd37c446c37e27e0e28
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
